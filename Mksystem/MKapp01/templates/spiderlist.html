@@ -1,0 +1,51 @@
+{% extends 'demo.html' %}
+{% block search %}
+    <div style="float: right;width: 400px">
+        <form method="get">
+            <div class="input-group">
+                <input type="text" class="form-control" name="search" placeholder="关键字" value="">
+                <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </span>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+{% block content %}
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">评分</th>
+            <th scope="col">人数</th>
+            <th scope="col">标题</th>
+            <th scope="col">链接</th>
+            <th scope="col">简介</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in  queryset %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ item.mark }}</td>
+                <td>{{ item.people }}</td>
+                <td>{{ item.title }}</td>
+                <td onclick=window.open("{{ item.url }}")>{{ item.url }}</td>
+                <td>
+                    <p class="content">
+                        {{ item.text_data }}
+                    </p>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="container">
+        <ul class="pagination">
+            {{ page_string }}
+        </ul>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'demo.html' %}
+{% block content %}
+    <div class="content">
+        <div class="jumbotron">
+            <h1 class="display-5">关于慕课平台课程系统！</h1>
+            <p class="lead">该系统实现对慕课平台课程的爬取保存，仅供使用学习，未用做其他用途。</p>
+            <p>如有侵权，请联系我删除。</p>
+            <hr class="my-4">
+            <p>在这，开始爬取慕课。</p>
+            <a type="button"  class="btn btn-primary" href="/runspider/">启动</a>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script type="text/javascript">
+
+        var btn = document.getElementById("btn1");
+        // 第一种 通过点击事件
+        btn.onclick = function () {
+            $.ajax({
+                url: '/runspider/',
+                type: 'GET',
+                dataType: 'JSON',
+
+            })
+        }
+
+
+    </script>
+{% endblock %}

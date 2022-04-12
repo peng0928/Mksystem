@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static '/plugins/bootstrap.min.css' %}">
+    {% block title %}
+        <title>慕课平台系统</title>
+    {% endblock %}
+</head>
+<body>
+<div>
+    <nav style="height: auto;" class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="/index/">慕课平台爬虫系统</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/spiderlist/">课程数据</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/data/">课程分析</a>
+                </li>
+            </ul>
+        </div>
+        {% block search %}{% endblock %}
+    </nav>
+    {% block content %}{% endblock %}
+</div>
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% block js %}{% endblock %}
+
+</body>
+</html>
